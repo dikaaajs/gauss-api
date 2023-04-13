@@ -15,4 +15,4 @@ Content-Type: application/json
 GET http://localhost:3000/lokasi
 
 ###
-DELETE  http://localhost:3000/lokasi/1
+DELETE  http://localhost:3000/lokasi/64383c6f0a8b70def4072397

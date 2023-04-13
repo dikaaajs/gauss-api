@@ -12,7 +12,14 @@ export const tambahLokasi = async (req, res) => {
   }
 
   try {
-    await Lokasi.create({ lat, long, pesan, tingker });
+    const newLokasi = new Lokasi({
+      lat,
+      long,
+      pesan,
+      tingker,
+    });
+
+    await newLokasi.save();
     res.status(201).json({ msg: "berhasil menambahkan data lokasi" });
   } catch (error) {
     res.status(400).json({ msg: "gagal menambahkan data lokasi" });
@@ -21,8 +28,7 @@ export const tambahLokasi = async (req, res) => {
 
 export const getAllLokasi = async (req, res) => {
   try {
-    const response = await Lokasi.findAll();
-    console.log(response);
+    const response = await Lokasi.find();
     res.status(200).json(response);
   } catch (err) {
     console.log(err.message);
@@ -31,9 +37,12 @@ export const getAllLokasi = async (req, res) => {
 
 export const deleteLokasi = async (req, res) => {
   try {
-    await Lokasi.destroy({ where: { id: req.params.id } });
+    await Lokasi.findByIdAndDelete(req.params.id);
     res.status(201).json({ msg: "data lokasi berhasil dihapus" });
-  } catch (e) {
-    console.log(e.message);
+  } catch (error) {
+    console.log(error.message);
+    res
+      .status(500)
+      .json({ msg: "terjadi kesalahan saat menghapus data lokasi" });
   }
 };

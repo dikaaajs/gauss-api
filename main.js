@@ -1,21 +1,13 @@
 import express from "express";
 import routes from "./routes/routes.js";
-import * as dotenv from "dotenv";
 import bodyParser from "body-parser";
 
 // import cors from "cors";
-import database from "./db/config.js";
+import connectDB from "./db/mongodb.js";
+connectDB();
 
+import * as dotenv from "dotenv";
 dotenv.config();
-
-database
-  .authenticate()
-  .then(() => {
-    console.log("database connected");
-  })
-  .catch((err) => {
-    console.log(err.message);
-  });
 
 const app = express();
 

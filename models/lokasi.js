@@ -1,23 +1,14 @@
-import { Sequelize } from "sequelize";
-import database from "../db/config.js";
+import mongoose from "mongoose";
 
-const { DataTypes } = Sequelize;
+const { Schema } = mongoose;
 
-const Lokasi = database.define(
-  "acara",
-  {
-    long: DataTypes.STRING,
-    lat: DataTypes.STRING,
-    pesan: DataTypes.STRING,
-    tingker: DataTypes.TINYINT,
-  },
-  {
-    freezeTableName: true,
-  }
-);
+const LokasiSchema = new Schema({
+  long: String,
+  lat: String,
+  pesan: String,
+  tingker: Number,
+});
+
+const Lokasi = mongoose.model("Lokasi", LokasiSchema);
 
 export default Lokasi;
-
-(async () => {
-  await Lokasi.sync();
-})();

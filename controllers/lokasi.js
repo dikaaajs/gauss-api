@@ -5,10 +5,12 @@ export const tambahLokasi = async (req, res) => {
   if (token !== "onichanbaka") return res.status(400).json("token salah ngab");
 
   let pesan;
-  if (tingker < 50) {
-    pesan = "bawah kkm";
-  } else {
-    pesan = "atas kkm";
+  if (tingker < 500) {
+    pesan = "tanah basah";
+  } else if(tingker > 750) {
+    pesan = "tanah kering";
+  }else {
+    pesan = "sedang (tidak kering tidak basah)"
   }
 
   try {

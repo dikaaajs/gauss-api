@@ -23,6 +23,6 @@ app.use(
 app.use(routes);
 
 // app.listen(process.env.PORT, '0.0.0.0', () => console.log(`LISTENING ON PORT ${process.env.PORT}`))
-app.listen(process.env.PORT, () => {
+app.listen(3000, () => {
   console.log("aplikasi berjalan pada port 3000");
 });

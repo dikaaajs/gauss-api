@@ -1,8 +1,7 @@
 import express from "express";
 import routes from "./routes/routes.js";
 import bodyParser from "body-parser";
-
-// import cors from "cors";
+import cors from "cors";
 import connectDB from "./db/mongodb.js";
 connectDB();
 
@@ -12,6 +11,7 @@ dotenv.config();
 const app = express();
 
 // middleware
+app.use(cors());
 app.use(express.json());
 app.use(
   bodyParser.urlencoded({

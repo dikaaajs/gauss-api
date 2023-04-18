@@ -1,18 +1,18 @@
-GET http://localhost:3000
+GET https://wild-rose-cod-hem.cyclic.app/
 
 ###
-POST http://localhost:3000/lokasi
+POST https://wild-rose-cod-hem.cyclic.app/lokasi
 Content-Type: application/json
 
 {
     "long" : "1200",
     "lat" : "120312",
-    "tingker": 40,
+    "tingker": 400,
     "token" : "onichanbaka"
 }
 
 ### 
-GET http://localhost:3000/lokasi
+GET https://wild-rose-cod-hem.cyclic.app//lokasi
 
 ###
-DELETE  http://localhost:3000/lokasi/64383c6f0a8b70def4072397
+DELETE  https://wild-rose-cod-hem.cyclic.app//lokasi/64383c6f0a8b70def4072397
